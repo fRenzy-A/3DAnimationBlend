@@ -23,10 +23,9 @@ public class PlayerInput : MonoBehaviour
     {
         player.AddMovementInput(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
 
-        if (Input.GetKeyDown(KeyCode.CapsLock))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            player.ToggleRun();
-
+            player.ToggleRun();           
         }
     }
 }

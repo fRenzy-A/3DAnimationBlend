@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour
     public PlayerMovement playerMovement;
 
     private Vector3 velocity;
+
+    public Image RunToggleUI;
 
     // Update is called once per frame
     void Update()
@@ -54,10 +57,12 @@ public class Player : MonoBehaviour
         if (playerMovement.GetMovementMode() != MovementMode.Running)
         {
             playerMovement.SetMovementMode(MovementMode.Running);
+            RunToggleUI.GetComponent<Image>().color = Color.green;
         }
         else
         {
             playerMovement.SetMovementMode(MovementMode.Walking);
+            RunToggleUI.GetComponent<Image>().color = Color.red;
         }
     }
 
