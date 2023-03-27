@@ -92,5 +92,10 @@ Library\Bee\artifacts\mvdfrm\UnityEngine.VRModule.dll_FC29E134BF159393.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.WindModule.dll_34DC48870F79450F.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.XRModule.dll_2EE8A439484FE0F1.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEditor.WindowsStandalone.Extensions.dll_77685A471406F0D5.mvfrm
+<<<<<<< Updated upstream
 Library\Bee\artifacts\mvdfrm\Unity.Plastic.Antlr3.Runtime.dll_6EBD283ACA3C829F.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Plastic.Newtonsoft.Json.dll_3C1D137D60439526.mvfrm
+=======
+Library\Bee\artifacts\mvdfrm\Unity.Plastic.Antlr3.Runtime.dll_AFE112E03A8B7F4F.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Plastic.Newtonsoft.Json.dll_DBFE085E822CB576.mvfrm
+>>>>>>> Stashed changes
