@@ -25,7 +25,8 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            player.ToggleRun();           
+            player.ToggleRun();
+
         }
     }
 }

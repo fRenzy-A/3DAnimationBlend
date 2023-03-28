@@ -26,7 +26,7 @@ public class PlayerAnimationController : MonoBehaviour
         }
 
         animator.SetFloat( "Velocity", player.getVelocity() );
-        Debug.Log(player.getVelocity());
+        //Debug.Log(player.getVelocity());
 
 
     }

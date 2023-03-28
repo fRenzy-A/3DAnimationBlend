@@ -17,10 +17,12 @@ public class Player : MonoBehaviour
 
     public Image RunToggleUI;
 
+    public Text velocityText;
+
     // Update is called once per frame
     void Update()
     {
-        //transform.Translate(direction);
+        velocityText.text = getVelocity().ToString("#.00"); ;
     }
 
     public void AddMovementInput(float forward, float right)    // update movement inputs
@@ -65,5 +67,8 @@ public class Player : MonoBehaviour
             RunToggleUI.GetComponent<Image>().color = Color.red;
         }
     }
+
+
+
 
 }
