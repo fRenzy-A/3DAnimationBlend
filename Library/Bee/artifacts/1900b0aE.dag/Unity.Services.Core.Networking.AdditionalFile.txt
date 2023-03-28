@@ -1,5 +1,1 @@
-<<<<<<< Updated upstream
-C:\SamR_Github\AnimFund_3dCharacterController_Student
-=======
 C:\UnityProjects\AnimFund_3dCharacterController_Student
->>>>>>> Stashed changes

@@ -8,11 +8,14 @@ public enum MovementMode { Walking, Running, Sprinting, Crouching, Proning }
 public class PlayerMovement : MonoBehaviour
 {
     public Transform t_mesh;
-    public float maxSpeed = 5.0f;
+    public float walkSpeed = 2.25f;
+    public float runSpeed = 10.0f;
     private float smoothSpeed;
     private float rotationSpeed = 10.0f;
 
-    public Rigidbody rigidbody;    
+    private float speed;
+
+    public Rigidbody rb;    
 
     MovementMode movementMode;
 
@@ -20,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();          //initialize rigibody reference
+        speed = walkSpeed;
+        rb = GetComponent<Rigidbody>();          //initialize rigibody reference
     }
 
     void Update()
@@ -28,19 +32,19 @@ public class PlayerMovement : MonoBehaviour
         // if player is moving, rotate player mesh to match camera facing.
         if (velocity.magnitude > 0)
         {
-            rigidbody.velocity = new Vector3(velocity.normalized.x * smoothSpeed, rigidbody.velocity.y, velocity.normalized.z * smoothSpeed);
-            smoothSpeed = Mathf.Lerp(smoothSpeed, maxSpeed, Time.deltaTime);
+            rb.velocity = new Vector3(velocity.normalized.x * smoothSpeed, rb.velocity.y, velocity.normalized.z * smoothSpeed);
+            smoothSpeed = Mathf.Lerp(smoothSpeed, speed, Time.deltaTime);
             //t_mesh.rotation = Quaternion.LookRotation(velocity);
             t_mesh.rotation = Quaternion.Lerp(t_mesh.rotation, Quaternion.LookRotation(velocity), Time.deltaTime * rotationSpeed);
 
         }
         else
         {
-            smoothSpeed = Mathf.Lerp(maxSpeed, smoothSpeed, Time.deltaTime);
+            smoothSpeed = Mathf.Lerp(speed, smoothSpeed, Time.deltaTime);
         }
     }
 
-    public Vector3 Velocity { get => rigidbody.velocity; set => velocity = value; }
+    public Vector3 Velocity { get => rb.velocity; set => velocity = value; }
 
     public void SetMovementMode(MovementMode mode)
     {
@@ -49,27 +53,22 @@ public class PlayerMovement : MonoBehaviour
         {
             case MovementMode.Walking:
                 {
-                    maxSpeed = 5.0f;
+                    speed = walkSpeed;
                     break;
                 }   
             case MovementMode.Running:
                 {
-                    maxSpeed = 10.0f;
+                    speed = runSpeed;
                     break;
-                }
-            case MovementMode.Sprinting:
-                {
-                    maxSpeed = 20.0f;
-                    break;
-                }
+                }            
             case MovementMode.Crouching:                
                 {
-                    maxSpeed = 4.0f;
+                    speed = walkSpeed *0.5f;
                     break;
                 }
             case MovementMode.Proning:
                 {
-                    maxSpeed = 2.0f;
+                    speed = walkSpeed * 0.25f;
                     break;
                 }
         }
